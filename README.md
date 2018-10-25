@@ -26,10 +26,10 @@ Authenticate your account by including your `access_key_id` in API requests. You
 
 Authentication to the API is performed via HTTP Header. 
 
-````
+```bash
 -H 'x-ca-version: 1.0'
 -H 'x-ca-accesskeyid: ACCESS_KEY_ID' 
-````
+```
 
 
 ## Measurements
@@ -50,14 +50,14 @@ The request `body` should contain the image data for measurements. Only 1 input 
 
 Example:
 
-````
+```bash
 curl -H "Content-Type:application/json" \
     -H 'x-ca-version: 1.0' \
     -H 'x-ca-accesskeyid: ACCESS_KEY_ID' \
     -X POST \
         --data '{"image_url":"http://image_url"}' \
         'https://api.productai.com/measure/_0000203/predict'
-````
+```
 
 ### Response
 
@@ -76,7 +76,7 @@ All API responses are returned in JSON.
 
 Example:
 
-````
+```json
 {
     "request_id": "f9e0953b-b7b2-40aa-b60f-2b577cca0324",
     "results": {
@@ -98,7 +98,7 @@ Example:
         "process_seconds": 1.234
     }
 }
-````
+```
 
 ## Batch Process
 
@@ -131,7 +131,7 @@ The request `body` should contain a name for the batch processing request, and a
 
 Example:
 
-````
+```bash
 payload = '{
     "name":"tshirts_task",
     "items":[
@@ -148,7 +148,7 @@ curl -H "Content-Type:application/json" \
     -X POST \
         --data $payload \
         'https://api.productai.com/measure/_0000203/batch/process'
-````
+```
 
 ### Response
 
@@ -175,7 +175,7 @@ Tasks
 
 Example:
 
-````
+```json
 {
     "request_id": "0562dde8-c3ba-11e8-9e6e-0242ac1c2404",
     "results": {
@@ -190,7 +190,7 @@ Example:
         "update_at": 1538206436
     }
 }
-````
+```
 
 
 ### Check Task Status
@@ -212,13 +212,13 @@ Task status API may be invoked by using GET method, with task ID as parameter:
 
 Example: 
 
-````
+```bash
 curl -H "Content-Type:application/json" \
     -H 'x-ca-version: 1.0' \
     -H 'x-ca-accesskeyid: ACCESS_KEY_ID' \
     -X GET 'https://api.productai.com/measure/_0000203/batch/process/<task_id>'
 
-````
+```
 
 ## Label Reference
 
@@ -343,6 +343,3 @@ All errors are returned in JSON format.
 | 4003 | Item is missing or has invalid `image_url` |
 | 4004 | Request data is empty | 
 | 4005 | Task ID invalid | 
-
-
-
