@@ -41,11 +41,11 @@ Make a request by sending an image, either as an image file handler object, in s
 
 The request `body` should contain the image data for measurements. Only 1 input parameter is required; if multiple input parameters are provided, the API will use first available one. 
 
-| Param | Required | Type | Description | 
+| Param | Required | Type | Description |
 |-------|---------|------|-------------|
-| image_base64 | Yes | String | Image encoded in `base64` | 
+| image_base64 | Yes | String | Image encoded in `base64` |
 | image_url | Yes | String | Image url |
-| image_file | File | Image file handler | Image file, e.g. `.jpg` | 
+| image_file | File | Image file handler | Image file, e.g. `.jpg` |
 
 
 Example:
@@ -71,7 +71,7 @@ All API responses are returned in JSON.
 |-------|------|-------------|
 | `measurements` | Object | Measurements in `mm`, as JSON object. For details see [Label Reference](#label-reference). |
 | `get_image_seconds` | Float | Duration for fetching or uploading image |
-| `process_seconds` | Float | Duration for processing API request| 
+| `process_seconds` | Float | Duration for processing API request|
 
 
 Example:
@@ -112,20 +112,20 @@ You can [check task status](#check-task-status), and if its completed successful
 The request `body` should contain a name for the batch processing request, and a list of images for processing. The images can be passed as a `JSON` array, a `.csv` file, or `.json` file. Only 1 input parameter is required; if multiple input parameters are provided, the API will use first available one. 
 
 
-| Param | Required | Type | Description | 
+| Param | Required | Type | Description |
 |-------|---------|------|-------------|
 | name | Yes | String | Task name |
 | items | Array | Array of [Item](#item-object) objects. |
-| item_json_file | File | `.json` file, with an [Item](#item-object) object for each line | 
-| item_csv_file | File | `.csv` file with 2 columns, `image_url` and `item_id` | 
+| item_json_file | File | `.json` file, with an [Item](#item-object) object for each line |
+| item_csv_file | File | `.csv` file with 2 columns, `image_url` and `item_id` |
 
 
 #### Item Object
 
-| Param | Required | Type | Description | 
+| Param | Required | Type | Description |
 |-------|---------|------|-------------|
-| `item_url` | Yes | String | URL path to image | 
-| `item_id` | No | String | A meta tag for identifying this item | 
+| `item_url` | Yes | String | URL path to image |
+| `item_id` | No | String | A meta tag for identifying this item |
 
 
 
@@ -161,12 +161,12 @@ Tasks
 
 | Field | Type | Description |
 |-------|------|-------------|
-| id | String | Task ID used to [check task status](#check-task-status). Note -- this is different from `request_id`. | 
-| name | String | Task name | 
+| id | String | Task ID used to [check task status](#check-task-status). Note -- this is different from `request_id`. |
+| name | String | Task name |
 | status | Integer | [Task Status Code](#check-task-status) |
-| output_url | String | URL to output `.json` file containing results. `output_url` will be null until task is finished. | 
-| count | Integer | Total num of items received in request | 
-| input_url | String | URL to request input file | 
+| output_url | String | URL to output `.json` file containing results. `output_url` will be null until task is finished. |
+| count | Integer | Total num of items received in request |
+| input_url | String | URL to request input file |
 | cid   | String | Client ID |
 | create_at | LongInt | Timestamp of task created |
 | updated_at | LongInt | Timestamp of last task update |
@@ -202,12 +202,12 @@ Task status API may be invoked by using GET method, with task ID as parameter:
 `https://api.productai.cn/measure/_0000203/batch/process/<task_id>`. 
 
 
-| status code | Description | 
+| status code | Description |
 |-------------|-------------|
-| 0 | Pending | 
+| 0 | Pending |
 | 1 | Started |
-| 2 | Completed successfully | 
-| 4 | Finished with error | 
+| 2 | Completed successfully |
+| 4 | Finished with error |
 
 
 Example: 
@@ -234,24 +234,24 @@ Different garment types have different measurement labels. All labels are return
 
 #### Tops
 
-| Label | Chinese `zh` | Japanese `ja` | 
+| Label | Chinese `zh` | Japanese `ja` |
 |-------|--------------|---------------|
 | body-width | 身宽 | 身幅 |
 | shoulder-width | 肩宽 | 肩幅 |
 | chest-circumference  | 胸围 | 胸囲 |
 | hem-width | 下摆宽 | 裾幅 |
 | hem-circumference | 下摆围 | 裾まわり |
-| sleeve-width | 袖宽 | 袖幅 | 
+| sleeve-width | 袖宽 | 袖幅 |
 | sleeve-circumference | 袖围 | 袖まわり |
 | sleeve-length | 袖长 | 袖丈 |
 | raglan-sleeve-length | 套袖长度  | 裄丈 |
 | arm-hole | 袖孔宽  | アームホール |
 | body-length  | 身长 | 身丈 |
-| length | 衣长 | 着丈 | 
+| length | 衣长 | 着丈 |
 
 #### Pants
 
-| Label | Chinese `zh` | Japanese `ja` | 
+| Label | Chinese `zh` | Japanese `ja` |
 |-------|--------------|---------------|
 | waist-width | 腰宽 | ウエスト幅 |
 | waist-circumference | 腰围 | ウエスト |
@@ -268,20 +268,20 @@ Different garment types have different measurement labels. All labels are return
 
 #### Dress
 
-| Label | Chinese `zh` | Japanese `ja` | 
+| Label | Chinese `zh` | Japanese `ja` |
 |-------|--------------|---------------|
 | body-width | 身宽 | 身幅 |
 | shoulder-width | 肩宽 | 肩幅 |
 | chest-circumference  | 胸围 | 胸囲 |
 | hem-width | 下摆宽 | 裾幅 |
 | hem-circumference | 下摆围 | 裾まわり |
-| sleeve-width | 袖宽 | 袖幅 | 
+| sleeve-width | 袖宽 | 袖幅 |
 | sleeve-circumference | 袖围 | 袖まわり |
 | sleeve-length | 袖长 | 袖丈 |
 | raglan-sleeve-length | 套袖长度  | 裄丈 |
 | arm-hole | 袖孔宽  | アームホール |
 | body-length  | 身长 | 身丈 |
-| length | 衣长 | 着丈 | 
+| length | 衣长 | 着丈 |
 | waist-width | 腰宽 | ウエスト幅 |
 | waist-circumference | 腰围 | ウエスト |
 | hip-width  | 臀宽 | ヒップ幅 |
@@ -289,48 +289,48 @@ Different garment types have different measurement labels. All labels are return
 
 #### Skirt
 
-| Label | Chinese `zh` | Japanese `ja` | 
+| Label | Chinese `zh` | Japanese `ja` |
 |-------|--------------|---------------|
 | waist-width | 腰宽 | ウエスト幅 |
 | waist-circumference | 腰围 | ウエスト |
 | hem-width | 下摆宽 | 裾幅 |
 | hem-circumference | 下摆围 | 裾まわり |
-| length | 衣长 | 着丈 | 
+| length | 衣长 | 着丈 |
 
 #### Coat
 
-| Label | Chinese `zh` | Japanese `ja` | 
+| Label | Chinese `zh` | Japanese `ja` |
 |-------|--------------|---------------|
 | body-width | 身宽 | 身幅 |
 | shoulder-width | 肩宽 | 肩幅 |
 | chest-circumference  | 胸围 | 胸囲 |
 | hem-width | 下摆宽 | 裾幅 |
 | hem-circumference | 下摆围 | 裾まわり |
-| sleeve-width | 袖宽 | 袖幅 | 
+| sleeve-width | 袖宽 | 袖幅 |
 | sleeve-circumference | 袖围 | 袖まわり |
 | sleeve-length | 袖长 | 袖丈 |
 | arm-hole | 袖孔宽  | アームホール |
 | body-length  | 身长 | 身丈 |
-| length | 衣长 | 着丈 | 
+| length | 衣长 | 着丈 |
 
 
 ## Errors
 
 All errors are returned in JSON format. 
 
-| error_code | Description | 
+| error_code | Description |
 |------------|-------------|
 | 2001 | Image parameter is not provided. Should provide image in `image_file`, `image_url` or `image_base64` parameters. |
 | 2002 | The image size is too small. Please see [Image Specifications](#image-specifications) for requirements. |
-| 2003 | The image file size is too large. Please see [Image Specifications](#image-specifications) for requirements. | 
+| 2003 | The image file size is too large. Please see [Image Specifications](#image-specifications) for requirements. |
 | 2004 | The image file type is not supported. Please see [Image Specifications](#image-specifications) for requirements. |
 | 2005 | Can’t retrieve image through the url. |
 | 2006 | Timeout error. The image download time is more than 10 seconds. |
 | 2007 | Image download failed. |
-| 2008 | The image url is invalid. | 
+| 2008 | The image url is invalid. |
 | 2009 | Failed to recognize MeasureKit marker in the image. |
 | 2010 | Garment detection error. |
-| 2011 | Failed to detect garment in image. | 
+| 2011 | Failed to detect garment in image. |
 | 2012 | Multiple garments were detected in the image. |
 | 2013 | The garment type is not supported for measurement. |
 | 3004 | `ACCESS_KEY_ID` incorrect. |
@@ -339,5 +339,5 @@ All errors are returned in JSON format.
 | 4001 | Request data not provided. Should provide `items`, `item_json_file` or `item_csv_file`. |
 | 4002 | Request data exceeded max limit `50,000`. Please contact your account representative. |
 | 4003 | Item is missing or has invalid `image_url` |
-| 4004 | Request data is empty | 
-| 4005 | Task ID invalid | 
+| 4004 | Request data is empty |
+| 4005 | Task ID invalid |
