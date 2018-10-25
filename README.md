@@ -320,8 +320,7 @@ All errors are returned in JSON format.
 
 | error_code | Description | 
 |------------|-------------|
-| 2001 | Image parameter is not provided. Should provide image in
-`image_file`, `image_url` or `image_base64` parameters. |
+| 2001 | Image parameter is not provided. Should provide image in `image_file`, `image_url` or `image_base64` parameters. |
 | 2002 | The image size is too small. Please see [Image Specifications](#image-specifications) for requirements. |
 | 2003 | The image file size is too large. Please see [Image Specifications](#image-specifications) for requirements. | 
 | 2004 | The image file type is not supported. Please see [Image Specifications](#image-specifications) for requirements. |
