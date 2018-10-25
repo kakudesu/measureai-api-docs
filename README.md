@@ -337,8 +337,7 @@ All errors are returned in JSON format.
 | 3004 | `ACCESS_KEY_ID` incorrect. |
 | 3005 | `ACCESS_KEY_ID` expired. |
 | 3007 | Request missing `ACCESS_KEY_ID` |
-| 4001 | Request data not provided. Should provide `items`, 
-`item_json_file` or `item_csv_file`. |
+| 4001 | Request data not provided. Should provide `items`, `item_json_file` or `item_csv_file`. |
 | 4002 | Request data exceeded max limit `50,000`. Please contact your account representative. |
 | 4003 | Item is missing or has invalid `image_url` |
 | 4004 | Request data is empty | 
